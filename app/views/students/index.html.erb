@@ -1,0 +1,60 @@
+<div class="page-header">
+  <h1><%=t('.title') %></h1>
+</div>
+
+<div class="row">
+  <div class="col-lg-3">
+    <%= search_form_for @search, url: search_students_path, method: :post, html: { class: 'panel panel-default' } do |f| %>
+      <div class="panel-heading">
+        <h1 class="panel-title"><strong><%= t('.filters') %></strong></h1>
+      </div>
+
+      <div class="panel-body">
+        <div class="form-group">
+          <%= f.label :full_name %>
+          <%= f.text_field :full_name_cont, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :gender %>
+          <%= f.select :gender_eq, Student.genders.map { |k, v| [Student.human_enum_name(:gender, k), v] }, { prompt: true }, { class: 'form-control' } %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :suid %>
+          <%= f.text_field :suid_cont, class: 'form-control' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit class: 'btn btn-success' %>
+          <%= link_to t('.clear_link'), students_path, class: "btn btn-danger" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-lg-9">
+    <table class="table table-striped text-center">
+      <thead>
+      <tr>
+        <th class="text-center">#</th>
+        <th class="text-center"><%= sort_link @search, :full_name, t('.table.full_name') %></th>
+        <th class="text-center"><%= sort_link @search, :gender, t('.table.gender') %></th>
+        <th class="text-center"><%= sort_link @search, :suid, t('.table.suid') %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @students.each.with_index(1) do |student, i| %>
+        <tr>
+          <td><%= i %></td>
+          <td><%= link_to student.full_name, student_path(student), class: '' %></td>
+          <td><%= student.translate_gender %></td>
+          <td><%= student.suid %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <%= link_to t('.links.new'), new_student_path, class: 'btn btn-primary' %>
+  </div>
+</div>

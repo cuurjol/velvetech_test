@@ -1,0 +1,40 @@
+<%= form_for(@student, html: { class: 'panel panel-default' }) do |f| %>
+  <div class="panel-heading">
+    <h1 class="panel-title"><strong><%= t('.title') %></strong></h1>
+  </div>
+
+  <div class="panel-body">
+    <div class="form-group">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class: 'form-control', readonly: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class: 'form-control', readonly: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :middle_name %>
+      <%= f.text_field :middle_name, class: 'form-control', readonly: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :gender %>
+      <%= f.text_field :translate_gender, class: 'form-control', readonly: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :suid %>
+      <%= f.text_field :suid, class: 'form-control', readonly: true %>
+    </div>
+
+    <div class="actions">
+      <%= link_to t('.links.edit'), edit_student_path(@student), class: 'btn btn-success' %>
+    </div>
+  </div>
+
+  <div class="panel-footer">
+    <%= link_to t('.links.main_page_back'), root_path, class: 'btn btn-primary' %>
+  </div>
+<% end %>

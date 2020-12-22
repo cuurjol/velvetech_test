@@ -1,0 +1,53 @@
+<%= form_for @student, html: { multipart: true, class: 'panel panel-default' } do |f| %>
+  <div class="panel-heading">
+    <h1 class="panel-title"><strong><%= form_title(@student) %></strong></h1>
+  </div>
+
+  <div class="panel-body">
+    <div class="form-group <%= "has-error" if f.errors_on?(:last_name) %>">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class: 'form-control' %>
+      <%= f.error_span(:last_name) %>
+    </div>
+
+    <div class="form-group <%= "has-error" if f.errors_on?(:first_name) %>">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class: 'form-control' %>
+      <%= f.error_span(:first_name) %>
+    </div>
+
+    <div class="form-group <%= "has-error" if f.errors_on?(:middle_name) %>">
+      <%= f.label :middle_name %>
+      <%= f.text_field :middle_name, class: 'form-control' %>
+      <%= f.error_span(:middle_name) %>
+    </div>
+
+    <div class="form-group <%= "has-error" if f.errors_on?(:gender) %>">
+      <%= f.collection_radio_buttons(:gender, Student.genders, :first, :first) do |b| %>
+        <%= b.label { b.radio_button + ' ' + Student.human_enum_name(:gender, b.text) } %><br/>
+      <% end %>
+      <%= f.error_span(:gender) %>
+    </div>
+
+    <div class="form-group <%= "has-error" if f.errors_on?(:suid) %>">
+      <%= f.label :suid %>
+      <%= f.text_field :suid, class: 'form-control' %>
+      <%= f.error_span(:suid) %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit t('.buttons.save'), class: 'btn btn-success' %>
+    </div>
+  </div>
+
+  <div class="panel-footer">
+    <% if @student.new_record? %>
+      <%= link_to t('.links.main_page_back'), root_path, class: 'btn btn-primary' %>
+    <% else %>
+      <%= link_to t('.links.profile_page_back'), student_path(@student), class: 'btn btn-primary' %>
+
+      <%= link_to t('.links.destroy'), student_path(@student),
+                  data: { confirm: t('.confirm_destruction') }, method: :delete, class: 'btn btn-danger' %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,33 +1,157 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  pundit:
+    user_policy:
+      show?: "You cannot view this user profile!"
+      edit?: "You cannot edit this user profile!"
+      update?: "You cannot update this user profile!"
+    student_policy:
+      index?: 'You cannot view a list of students!'
+      show?: 'You cannot view this student profile!'
+      edit?: 'You cannot edit this student profile!'
+      create?: 'You cannot create students!'
+      update?: 'You cannot update this student profile!'
+      destroy?: 'You cannot destroy this student profile!'
+
+  activerecord:
+    models:
+      user: 'User'
+      student: 'Student'
+    attributes:
+      user:
+        email: 'Email'
+        last_name: 'Last name'
+        first_name: 'First name'
+        middle_name: 'Middle name'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+      student:
+        full_name: 'Full name'
+        last_name: 'Last name'
+        first_name: 'First name'
+        middle_name: 'Middle name'
+        gender: 'Gender'
+        suid: 'Student unique identifier'
+        genders:
+          male: 'Male'
+          female: 'Female'
+
+  controllers:
+    users:
+      updated: 'User was successfully updated.'
+    students:
+      created: 'Student was successfully created.'
+      updated: 'Student was successfully updated.'
+      destroyed: 'Student was successfully destroyed.'
+
+  layouts:
+    user_menu:
+      sign_out: 'Sign out'
+
+  devise:
+    passwords:
+      edit:
+        title: 'Password reset'
+        placeholders:
+          new_password: 'Your new password'
+          new_password_confirmation: 'Repeat new password'
+        buttons:
+          change: 'Restore password'
+      new:
+        title: 'Forgot your password?'
+        tip: 'If you have forgotten your password, enter your Email address provided during registration. You will be sent a password reset instruction.'
+        placeholders:
+          email: 'Your email'
+        buttons:
+          continue: 'Send instruction'
+    registrations:
+      edit:
+        title: 'Change your password'
+        placeholders:
+          new_password: 'Your new password'
+          new_password_confirmation: 'Repeat new password'
+          current_password: 'Your current password'
+        tip: 'Enter current password to confirm password change'
+        buttons:
+          change: 'Change my password'
+        links:
+          profile: 'Back to profile edit page'
+      new:
+        title: 'New user registration'
+        placeholders:
+          last_name: 'Your last name'
+          first_name: 'Your first name'
+          middle_name: 'Your middle name'
+          email: 'Your email'
+          password: 'Your password'
+          password_confirmation: 'Repeat password'
+        buttons:
+          sign_up: 'Sign up'
+    sessions:
+      new:
+        title: 'User authorization'
+        placeholders:
+          email: 'Your email'
+          password: 'Your password'
+        buttons:
+          sign_in: 'Sign in'
+    shared:
+      links:
+        sign_up: 'Sign up'
+        sign_in: 'Sign in'
+        forgot_password: 'Forgot your password?'
+
+  users:
+    show:
+      title: 'User details'
+      links:
+        edit: 'Edit profile'
+        main_page_back: 'Back to main page'
+    edit:
+      title: 'Editing user'
+    form:
+      links:
+        profile_page_back: 'Back to profile page'
+        change_password: 'Change password'
+        destroy_page: 'Delete page'
+      confirm_destruction: 'Are you sure you want to destroy the user page?'
+      or_label: ' or '
+      buttons:
+        save: 'Save'
+
+  students:
+    index:
+      title: 'Students'
+      filters: 'Filters'
+      clear_link: 'Clear'
+      table:
+        full_name: 'ФИО'
+        gender: 'Gender'
+        suid: 'Student unique identifier'
+        actions: 'Actions'
+      links:
+        new: 'New student'
+    new:
+      title: 'New student'
+    edit:
+      title: 'Editing student'
+    show:
+      title: 'Student details'
+      links:
+        edit: 'Edit profile'
+        main_page_back: 'Back to main page'
+    form:
+      confirm_destruction: 'Are you sure you want to destroy the student?'
+      buttons:
+        save: 'Save'
+      links:
+        profile_page_back: 'Back to student profile page'
+        main_page_back: 'Back to main page'
+        destroy: 'Destroy student'
+
+  errors_count:
+    one: 'There is %{count} error in your form'
+    other: 'There are %{count} errors in your from'
+
+  characters_count:
+    one: '%{count} character minimum'
+    other: '%{count} characters minimum'

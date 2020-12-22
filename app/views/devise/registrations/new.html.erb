@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-xs-6">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'panel panel-default' }) do |f| %>
+      <div class="panel-heading">
+        <h1 class="panel-title"><strong><%= t('devise.registrations.new.title') %></strong></h1>
+      </div>
+
+      <div class="panel-body">
+        <div class="form-group <%= "has-error" if f.errors_on?(:last_name) %>">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, autofocus: true, placeholder: t('devise.registrations.new.placeholders.last_name'), class: "form-control" %>
+          <%= f.error_span(:last_name) %>
+        </div>
+
+        <div class="form-group <%= "has-error" if f.errors_on?(:first_name) %>">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, autofocus: true, placeholder: t('devise.registrations.new.placeholders.first_name'), class: "form-control" %>
+          <%= f.error_span(:first_name) %>
+        </div>
+
+        <div class="form-group <%= "has-error" if f.errors_on?(:middle_name) %>">
+          <%= f.label :middle_name %>
+          <%= f.text_field :middle_name, autofocus: true, placeholder: t('devise.registrations.new.placeholders.middle_name'), class: "form-control" %>
+          <%= f.error_span(:middle_name) %>
+        </div>
+
+        <div class="form-group <%= "has-error" if f.errors_on?(:email) %>">
+          <%= f.label :email %>
+          <%= f.text_field :email, autofocus: true, placeholder: t('devise.registrations.new.placeholders.email'), class: "form-control" %>
+          <%= f.error_span(:email) %>
+        </div>
+
+        <div class="form-group <%= "has-error" if f.errors_on?(:password) %>">
+          <%= f.label :password %>
+          <%= f.password_field :password, placeholder: t('devise.registrations.new.placeholders.password'), class: "form-control" %>
+          <% unless f.errors_on?(:password) %>
+            <span class="help-block"><em><%= t('characters_count', count: @minimum_password_length) %></em></span>
+          <% end %>
+          <%= f.error_span(:password) %>
+        </div>
+
+        <div class="form-group <%= "has-error" if f.errors_on?(:password_confirmation) %>">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, placeholder: t('devise.registrations.new.placeholders.password_confirmation'), class: "form-control" %>
+          <%= f.error_span(:password_confirmation) %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit t('devise.registrations.new.buttons.sign_up'), class: "btn btn-success" %>
+        </div>
+      </div>
+
+      <div class="panel-footer"><%= render "devise/shared/links" %></div>
+    <% end %>
+  </div>
+</div>

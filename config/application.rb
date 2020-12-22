@@ -29,5 +29,18 @@ module VelvetechTest
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.time_zone = 'Moscow'
+
+    config.i18n.available_locales = %i[en ru]
+    config.i18n.default_locale = :ru
+
+    config.i18n.fallbacks = [:en]
+
+    # http://railsapps.github.io/rails-environment-variables.html
+    config.before_configuration do
+      env_file = File.join(Rails.root, 'config', 'local_env.yml')
+      YAML.safe_load(File.open(env_file)).each { |key, value| ENV[key.to_s] = value } if File.exist?(env_file)
+    end
   end
 end

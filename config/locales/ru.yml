@@ -1,0 +1,159 @@
+ru:
+  pundit:
+    user_policy:
+      show?: 'Вы не можете просматривать этот профиль пользователя!'
+      edit?: "Вы не можете редактировать этот профиль пользователя!"
+      update?: "Вы не можете обновить этот профиль пользователя!"
+    student_policy:
+      index?: 'Вы не можете смотреть список студентов!'
+      show?: 'Вы не можете просматривать этот профиль студента!'
+      edit?: 'Вы не можете редактировать этот профиль студента!'
+      create?: 'Вы не можете создавать студентов!'
+      update?: 'Вы не можете обновить этот профиль студента!'
+      destroy?: 'Вы не можете удалить этот профиль студента!'
+
+  activerecord:
+    models:
+      user: 'Пользователь'
+      water_meter_readings: 'Показания счётчика воды'
+    attributes:
+      user:
+        email: 'Email'
+        last_name: 'Фамилия'
+        first_name: 'Имя'
+        middle_name: 'Отчество'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+      student:
+        full_name: 'ФИО'
+        last_name: 'Фамилия'
+        first_name: 'Имя'
+        middle_name: 'Отчество'
+        gender: 'Пол'
+        suid: 'Уникальный идентификатор студента'
+        genders:
+          male: 'Мужчина'
+          female: 'Женщина'
+
+  controllers:
+    users:
+      updated: 'Пользователь был успешно обновлён.'
+    students:
+      created: 'Студент был успешно создан.'
+      updated: 'Студент был успешно обновлён.'
+      destroyed: 'Студент был успешно удалён.'
+
+  layouts:
+    user_menu:
+      sign_out: 'Выйти'
+
+  devise:
+    passwords:
+      edit:
+        title: 'Сброс пароля'
+        placeholders:
+          new_password: 'Ваш новый пароль'
+          new_password_confirmation: 'Повторите новый пароль'
+        buttons:
+          change: 'Восстановить пароль'
+      new:
+        title: 'Забыли пароль?'
+        tip: 'Если вы забыли пароль, введите свой Email, указанный при регистрации. Вам будет выслана инструкция по сбросу пароля.'
+        placeholders:
+          email: 'Ваш email'
+        buttons:
+          continue: 'Отправить инструкцию'
+    registrations:
+      edit:
+        title: 'Смена пароля пользователя'
+        placeholders:
+          new_password: 'Ваш новый пароль'
+          new_password_confirmation: 'Повторите новый пароль'
+          current_password: 'Ваш текущий пароль'
+        tip: 'Введите текущий пароль для подтверждения смены пароля'
+        buttons:
+          change: 'Изменить пароль'
+        links:
+          profile: 'Вернуться на страницу редактирования профиля'
+      new:
+        title: 'Регистрация нового пользователя'
+        placeholders:
+          last_name: 'Ваша фамилия'
+          first_name: 'Ваше имя'
+          middle_name: 'Ваше отчество'
+          email: 'Ваш email'
+          password: 'Ваш пароль'
+          password_confirmation: 'Повторите пароль'
+        buttons:
+          sign_up: 'Зарегистрироваться'
+    sessions:
+      new:
+        title: 'Авторизация пользователя'
+        placeholders:
+          email: 'Ваш email'
+          password: 'Ваш пароль'
+        buttons:
+          sign_in: 'Войти'
+    shared:
+      links:
+        sign_up: 'Зарегистрироваться'
+        sign_in: 'Войти'
+        forgot_password: 'Забыли пароль?'
+
+  users:
+    show:
+      title: 'Сведения о пользователе'
+      buttons:
+        edit: 'Редактировать профиль'
+        main_page_back: 'Вернуться на главную страницу'
+    edit:
+      title: 'Редактировать пользователя'
+    form:
+      links:
+        profile_page_back: 'Вернуться на страницу профиля'
+        change_password: 'Сменить пароль'
+        destroy_page: 'Удалить страницу'
+      confirm_destruction: 'Вы уверены, что хотите удалить страницу пользователя?'
+      or_label: ' или '
+      buttons:
+        save: 'Сохранить'
+
+  students:
+    index:
+      title: 'Студенты'
+      filters: 'Фильтры'
+      clear_link: 'Очистить'
+      table:
+        full_name: 'ФИО'
+        gender: 'Пол'
+        suid: 'Уникальный идентификатор студента'
+        actions: 'Действия'
+      links:
+        new: 'Новый студент'
+    new:
+      title: 'Новый студент'
+    edit:
+      title: 'Редактирование студента'
+    show:
+      title: 'Сведения о студенте'
+      links:
+        edit: 'Редактировать профиль'
+        main_page_back: 'Вернуться на главную страницу'
+    form:
+      confirm_destruction: 'Вы уверены, что хотите удалить студента?'
+      buttons:
+        save: 'Сохранить'
+      links:
+        profile_page_back: 'Вернуться на страницу профиля студента'
+        main_page_back: 'Вернуться на главную страницу'
+        destroy: 'Удалить студента'
+
+  errors_count:
+    one: 'В вашей форме %{count} ошибка'
+    few: 'В вашей форме %{count} ошибки'
+    many: 'В вашей форме %{count} ошибок'
+
+  characters_count:
+    one: 'Минимум %{count} символ'
+    few: 'Минимум %{count} символа'
+    many: 'Минимум %{count} символов'
