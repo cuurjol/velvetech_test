@@ -7,10 +7,11 @@ Style/FrozenStringLiteralComment:
 Style/AsciiComments:
   Enabled: false
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
   Exclude:
     - 'db/schema.rb'
+    - 'config/initializers/devise.rb'
 
 Style/Documentation:
   Enabled: false
@@ -51,6 +52,10 @@ Layout/EmptyLinesAroundBlockBody:
 Metrics/BlockLength:
   Exclude:
     - 'db/schema.rb'
+    - 'config/environments/development.rb'
+    - 'db/seeds.rb'
+    - 'spec/controllers/students_controller_spec.rb'
+    - 'spec/controllers/users_controller_spec.rb'
 
 Style/ExpandPathArguments:
   Exclude:
